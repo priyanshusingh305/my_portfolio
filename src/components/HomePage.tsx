@@ -7,7 +7,7 @@ import Link from "next/link";
 export function HomePage() {
 	const words = ["Hello there!", "I'm Priyanshu Singh, a Full Stack Developer."];
 	return (
-		<div className="h-screen grid grid-cols-2  w-auto  ">
+		<div className="h-screen grid grid-cols-2  w-auto  ml-2 md:ml-0">
 			<div className="flex flex-col justify-center md:items-center items-start">
 				<div className="flex flex-col ">
 					{words.map((word, index) => (
@@ -16,7 +16,7 @@ export function HomePage() {
 					))}
           
 				</div>
-				<div  className="flex flex-row justify-start md:w-[33rem]  mt-[2rem]" >
+				<div  className="flex flex-row justify-start md:w-[33rem]  mt-[2rem] " >
 					<Button className="mr-2">
 						Hire me
 					</Button>
@@ -24,9 +24,9 @@ export function HomePage() {
 						Download CV
 					</Button>
 				</div>
-        <div  className="flex flex-row justify-start md:w-[33rem] mt-[2rem]" >
+        <div  className="flex flex-row justify-start md:w-[33rem] mt-[2rem] " >
 				<Link href="https://github.com/priyanshusingh305" target="_blank" passHref>
-        <Button className="mr-2">
+        <Button className=" mr-2">
         <GitHubLogoIcon />
         </Button>
 				</Link>

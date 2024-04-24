@@ -7,7 +7,7 @@ import { ModeToggle } from "./ui/toggle-mode";
 
 export function NavbarDemo() {
   return (
-    <div className="relative md:w-full flex items-center justify-center w-[80%]">
+    <div className="relative md:w-full flex items-center justify-center ">
       <Navbar className="top-2" />
     </div>
   );
