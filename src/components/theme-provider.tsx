@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import { ThemeProvider as NextThemesProvider } from "next-themes";
+// biome-ignore lint/style/useImportType: <explanation>
 import { ThemeProviderProps } from "next-themes/dist/types";
 
 
