@@ -11,7 +11,7 @@ export function Education() {
                 <MagicCard>
                     <div className="flex flex-col md:flex-row gap-4">
                         <div className="md:flex-1 flex justify-center items-center">
-                            <Image src="/public/AKtu.png" alt="Education" width={200} height={200} layout="intrinsic" />
+                            <Image src="/AKtu.png" alt="Education" width={200} height={200} layout="intrinsic" />
                         </div>
                         <div className="md:flex-1 flex flex-col justify-center">
                             <p className="z-10 text-xl md:text-4xl font-medium text-gray-800 dark:text-gray-200">
