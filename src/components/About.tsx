@@ -6,7 +6,7 @@ export function About() {
 	return (
 		<div className=" h-full p-5 " id="about">
 			<WavyText word="About  me" className=" text-4xl font-bold text-black dark:text-white" />
-			<div className="grid md:grid-cols-2 grid-rows-2  h-[30rem]">
+			<div className="grid md:grid-cols-2 grid-rows-2  h-[35rem]">
 				<div className="flex justify-center items-center  h-[27.5rem]  ">
 					<Image alt={"alt"} src="/About.png" width={250} height={250} loading="eager" />
 				</div>
@@ -32,10 +32,12 @@ export function About() {
 						</MagicCard>
 					</MagicContainer>
 					<p className="gap-2 ml-2 text-xl font-light">
-						I am a passionate Full Stack Developer with a strong focus on JavaScript, React, and Node. I am passionate
-						about creating efficient, scalable, and user-friendly applications. I am passionate about creating
-						efficient, scalable, and user-friendly applications. I am passionate about creating efficient, scalable, and
-						user-friendly applications.
+				 I am a recent Computer Science graduate with expertise in full-stack development,
+						proficient in C++, Ruby, JavaScript, Python, and TypeScript. Currently interning at Revispy, I have
+						significantly improved system performance and database efficiency. I have also developed key projects like
+						Roxxcart, an e-commerce site, and LoFi, a music player platform. Certified in JavaScript Algorithms and Data
+						Structures from FreeCodeCamp and completed Devsnest&apos;s Frontend and Backend courses. Connect with me on
+						LinkedIn, GitHub, HackerRank, and LeetCode.
 					</p>
 				</div>
 			</div>
