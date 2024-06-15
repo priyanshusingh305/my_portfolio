@@ -20,9 +20,11 @@ export function HomePage() {
 					<Button className="mr-2">
 						Hire me
 					</Button>
+					<Link href="https://drive.google.com/file/d/1ous3f9STJOexoxap4rSCGpdRT10xHhr-/view?usp=drive_link">
 					<Button className="mr-2">
 						Download CV
 					</Button>
+					</Link>
 				</div>
         <div  className="flex flex-row justify-start md:w-[33rem] mt-[2rem] " >
 				<Link href="https://github.com/priyanshusingh305" target="_blank" passHref>
