@@ -12,7 +12,7 @@ export function HomePage() {
 				<div className="flex flex-col ">
 					{words.map((word, index) => (
 						// biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
-						<TextGenerateEffect key={index} words={word} />
+						<TextGenerateEffect key={index} words={word} className="text-5xl md:text-7xl" />
 					))}
           
 				</div>
