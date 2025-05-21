@@ -1,79 +1,194 @@
-"use client";
-import React, { useState } from "react";
-import { HoveredLink, Menu, MenuItem, ProductItem } from "./ui/navbar-menu";
-import { cn } from "@/lib/utils";
-import { ModeToggle } from "./ui/toggle-mode";
+"use client"
 
+import React, { useState, useEffect } from "react"
+import { HoveredLink, Menu, MenuItem, ProductItem } from "./ui/navbar-menu"
+import { cn } from "@/lib/utils"
+import { ModeToggle } from "./ui/toggle-mode"
+import { MenuIcon, X } from 'lucide-react'
+import { Button } from "./ui/button"
+import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet"
+import Link from "next/link"
 
 export function NavbarDemo() {
+  const [isScrolled, setIsScrolled] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 10)
+    }
+
+    window.addEventListener("scroll", handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
+
   return (
-    <div className="relative md:w-full w-screen flex items-center justify-center ">
-      <Navbar className="top-2 md:w-full w-screen" />
+    <div className="fixed top-0 left-0 right-0 z-50 w-full">
+      <div
+        className={cn(
+          "w-full transition-all duration-300",
+          isScrolled ? "bg-background/80 backdrop-blur-md shadow-sm py-2" : "py-4"
+        )}
+      >
+        <div className="container mx-auto flex items-center justify-between px-4">
+          {/* Logo */}
+          <Link href="#home" className="text-xl font-bold z-50">
+            Priyanshu Singh
+          </Link>
+
+          {/* Desktop Navigation */}
+          <div className="hidden md:block">
+            <DesktopNav />
+          </div>
+
+          {/* Mobile Navigation */}
+          <div className="flex items-center gap-2 md:hidden">
+            <MobileNav />
+            <ModeToggle />
+          </div>
+
+          {/* Mode Toggle (Desktop) */}
+          <div className="hidden md:block">
+            <ModeToggle />
+          </div>
+        </div>
+      </div>
     </div>
-  );
+  )
 }
 
-function Navbar({ className }: { className?: string }) {
-  const [active, setActive] = useState<string | null>(null);
-  return (
-    <div
-      className={cn("fixed top-10 inset-x-0 max-w-2xl md:mx-auto z-50", className)}
-    >
-      <Menu setActive={setActive}>
-        <MenuItem setActive={setActive} active={active} item="Services">
-          <div className="flex flex-col space-y-4 text-sm">
-            <HoveredLink href="/web-dev">Web Development</HoveredLink>
-            <HoveredLink href="/interface-design">Interface Design</HoveredLink>
-            <HoveredLink href="/seo">Search Engine Optimization</HoveredLink>
-            <HoveredLink href="/branding">Branding</HoveredLink>
-          </div>
-        </MenuItem>
-        <MenuItem setActive={setActive} active={active} item="Products">
-          <div className="  text-sm grid grid-cols-2 gap-10 p-4">
-            <ProductItem
-              title="Algochurn"
-              href="https://algochurn.com"
-              src="https://assets.aceternity.com/demos/algochurn.webp"
-              description="Prepare for tech interviews like never before."
-            />
-            <ProductItem
-              title="Tailwind Master Kit"
-              href="https://tailwindmasterkit.com"
-              src="https://assets.aceternity.com/demos/tailwindmasterkit.webp"
-              description="Production ready Tailwind css components for your next project"
-            />
-            <ProductItem
-              title="Moonbeam"
-              href="https://gomoonbeam.com"
-              src="https://assets.aceternity.com/demos/Screenshot+2024-02-21+at+11.51.31%E2%80%AFPM.png"
-              description="Never write from scratch again. Go from idea to blog in minutes."
-            />
-            <ProductItem
-              title="Rogue"
-              href="https://userogue.com"
-              src="https://assets.aceternity.com/demos/Screenshot+2024-02-21+at+11.47.07%E2%80%AFPM.png"
-              description="Respond to government RFPs, RFIs and RFQs 10x faster using AI"
-            />
-          </div>
-        </MenuItem>
-        <MenuItem setActive={setActive} active={active} item="Pricing">
-          <div className="flex flex-col space-y-4 text-sm">
-            <HoveredLink href="/hobby">Hobby</HoveredLink>
-            <HoveredLink href="/individual">Individual</HoveredLink>
-            <HoveredLink href="/team">Team</HoveredLink>
-            <HoveredLink href="/enterprise">Enterprise</HoveredLink>
-          </div>
-        </MenuItem>
-        <MenuItem setActive={setActive} active={active} item="Company">
-          <div className="flex flex-col space-y-4 text-sm">
-            <HoveredLink href="#about">About</HoveredLink>
-            <HoveredLink href="/blog">Blog</HoveredLink>
-            <HoveredLink href="/careers">Careers</HoveredLink>
-            <HoveredLink href="/contact">Contact</HoveredLink>
-          </div>
-        </MenuItem>
+function DesktopNav() {
+  const [active, setActive] = useState<string | null>(null)
 
+  return (
+    <div className="relative z-50">
+      <Menu setActive={setActive}>
+        <MenuItem setActive={setActive} active={active} item="Home">
+          <div className="flex flex-col space-y-4 text-sm">
+            <HoveredLink href="#home">Home</HoveredLink>
+            <HoveredLink href="#about">About</HoveredLink>
+            <HoveredLink href="#tech-stack">Tech Stack</HoveredLink>
+          </div>
+        </MenuItem>
+        <MenuItem setActive={setActive} active={active} item="Experience">
+          <div className="flex flex-col space-y-4 text-sm">
+            <HoveredLink href="#education">Education</HoveredLink>
+            <HoveredLink href="#experience">Work Experience</HoveredLink>
+            <HoveredLink href="#projects">Projects</HoveredLink>
+          </div>
+        </MenuItem>
+        <MenuItem setActive={setActive} active={active} item="Projects">
+          <div className="text-sm grid grid-cols-2 gap-10 p-4">
+            <ProductItem
+              title="Roxxcart"
+              href="#projects"
+              src="/placeholder.svg?height=100&width=100"
+              description="E-commerce platform with product catalog and payment integration."
+            />
+            <ProductItem
+              title="LoFi"
+              href="#projects"
+              src="/placeholder.svg?height=100&width=100"
+              description="Music player platform with curated playlists for focus and relaxation."
+            />
+            <ProductItem
+              title="Portfolio"
+              href="#projects"
+              src="/placeholder.svg?height=100&width=100"
+              description="Personal portfolio website showcasing skills and projects."
+            />
+          </div>
+        </MenuItem>
+        <MenuItem setActive={setActive} active={active} item="Contact">
+          <div className="flex flex-col space-y-4 text-sm">
+            <HoveredLink href="#contact">Get in Touch</HoveredLink>
+            <HoveredLink href="https://github.com/priyanshusingh305" target="_blank">
+              GitHub
+            </HoveredLink>
+            <HoveredLink href="https://www.linkedin.com/in/akapriyanshudev" target="_blank">
+              LinkedIn
+            </HoveredLink>
+            <HoveredLink href="https://twitter.com/akapriyanshudev" target="_blank">
+              Twitter
+            </HoveredLink>
+          </div>
+        </MenuItem>
       </Menu>
     </div>
-  );
+  )
+}
+
+function MobileNav() {
+  const navItems = [
+    { name: "Home", href: "#home" },
+    { name: "About", href: "#about" },
+    { name: "Tech Stack", href: "#tech-stack" },
+    { name: "Education", href: "#education" },
+    { name: "Experience", href: "#experience" },
+    { name: "Projects", href: "#projects" },
+    { name: "Contact", href: "#contact" },
+  ]
+
+  return (
+    <Sheet>
+      <SheetTrigger asChild>
+        <Button variant="ghost" size="icon" aria-label="Menu">
+          <MenuIcon className="h-6 w-6" />
+        </Button>
+      </SheetTrigger>
+      <SheetContent side="right" className="w-[280px] sm:w-[350px]">
+        <div className="flex flex-col h-full">
+          <div className="flex items-center justify-between mb-8 mt-2">
+            <h2 className="text-lg font-bold">Navigation</h2>
+            {/* <SheetTrigger asChild>
+              <Button variant="ghost" size="icon" aria-label="Close menu">
+                <X className="h-5 w-5" />
+              </Button>
+            </SheetTrigger> */}
+          </div>
+
+          <nav className="flex flex-col gap-2">
+            {navItems.map((item) => (
+              <SheetTrigger key={item.name} asChild>
+                <Link
+                  href={item.href}
+                  className="flex items-center px-4 py-3 text-base font-medium rounded-md hover:bg-accent transition-colors"
+                >
+                  {item.name}
+                </Link>
+              </SheetTrigger>
+            ))}
+          </nav>
+
+          <div className="mt-auto mb-8">
+            <div className="flex flex-col gap-4 mt-8">
+              <h3 className="text-sm font-semibold text-muted-foreground px-4">Social Links</h3>
+              <div className="flex flex-col gap-2">
+                <Link
+                  href="https://github.com/priyanshusingh305"
+                  target="_blank"
+                  className="flex items-center px-4 py-2 text-sm hover:bg-accent rounded-md transition-colors"
+                >
+                  GitHub
+                </Link>
+                <Link
+                  href="https://www.linkedin.com/in/akapriyanshudev"
+                  target="_blank"
+                  className="flex items-center px-4 py-2 text-sm hover:bg-accent rounded-md transition-colors"
+                >
+                  LinkedIn
+                </Link>
+                <Link
+                  href="https://twitter.com/akapriyanshudev"
+                  target="_blank"
+                  className="flex items-center px-4 py-2 text-sm hover:bg-accent rounded-md transition-colors"
+                >
+                  Twitter
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </SheetContent>
+    </Sheet>
+  )
 }
