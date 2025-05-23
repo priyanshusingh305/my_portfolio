@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/pfp.jpg",
+        url: "https://my-portfolio-chi-two-59.vercel.app/pfp.jpg",
         width: 800,
         height: 600,
         alt: "Priyanshu Singh | Full Stack Developer",
