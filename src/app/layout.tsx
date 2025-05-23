@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Priyanshu Singh | Full Stack Developer",
     description: "Portfolio website of Priyanshu Singh, a Full Stack Developer specializing in modern web technologies.",
-    // url: "https://priyanshu.dev",
+    url: "https://my-portfolio-chi-two-59.vercel.app",
     siteName: "Priyanshu Singh | Full Stack Developer",
     locale: "en-US",
     type: "website",
