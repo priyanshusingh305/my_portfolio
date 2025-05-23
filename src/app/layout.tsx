@@ -6,7 +6,6 @@ import { cn } from "@/lib/utils"
 import { ThemeProvider } from "@/components/theme-provider"
 import { NavbarDemo } from "@/components/Navbar"
 import { Spotlight } from "@/components/ui/Spotlight"
-import { ModeToggle } from "@/components/ui/toggle-mode"
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -15,6 +14,37 @@ const fontSans = FontSans({
 
 export const metadata: Metadata = {
   title: "Priyanshu Singh | Full Stack Developer",
+  viewport: "width=device-width, initial-scale=1",
+  appleWebApp: {
+    capable: true,
+    title: "Priyanshu Singh | Full Stack Developer",
+    statusBarStyle: "black-translucent",
+  },
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+    { media: "(prefers-color-scheme: dark)", color: "#000000" },
+  ],
+  icons: {
+    icon: "/pfp.jpg", 
+    shortcut: "/pfp.jpg",
+    apple: "/pfp.jpg",
+  },
+  openGraph: {
+    title: "Priyanshu Singh | Full Stack Developer",
+    description: "Portfolio website of Priyanshu Singh, a Full Stack Developer specializing in modern web technologies.",
+    // url: "https://priyanshu.dev",
+    siteName: "Priyanshu Singh | Full Stack Developer",
+    locale: "en-US",
+    type: "website",
+    images: [
+      {
+        url: "/pfp.jpg",
+        width: 800,
+        height: 600,
+        alt: "Priyanshu Singh | Full Stack Developer",
+      },
+    ],
+  },
   description: "Portfolio website of Priyanshu Singh, a Full Stack Developer specializing in modern web technologies.",
   keywords: ["developer", "full stack", "react", "next.js", "portfolio", "Priyanshu Singh"],
   authors: [{ name: "Priyanshu Singh" }],
