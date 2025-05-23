@@ -6,6 +6,7 @@ import { cn } from "@/lib/utils"
 import { ThemeProvider } from "@/components/theme-provider"
 import { NavbarDemo } from "@/components/Navbar"
 import { Spotlight } from "@/components/ui/Spotlight"
+import { Footer } from "@/components/Footer"
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -68,6 +69,7 @@ export default function RootLayout({
           <div className="relative w-full dark:bg-black bg-white dark:bg-dot-white/[0.2] bg-dot-black/[0.2]">
             <Spotlight className="-top-[25rem] left-0 md:left-60 md:-top-20" fill="white" />
             {children}
+            <Footer />
           </div>
         </ThemeProvider>
       </body>
