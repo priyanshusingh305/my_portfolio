@@ -33,7 +33,7 @@ export function Contact() {
                 </div>
                 <div>
                   <p className="text-sm text-muted-foreground">Email</p>
-                  <p className="font-medium">contact@priyanshusingh.com</p>
+                  <p className="font-medium">singhpriyanshu305@gmail.com</p>
                 </div>
               </div>
 
