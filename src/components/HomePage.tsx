@@ -48,7 +48,7 @@ export function HomePage() {
             </Button>
           </Link>
           <Link
-            href="https://drive.google.com/file/d/1ous3f9STJOexoxap4rSCGpdRT10xHhr-/view?usp=drive_link"
+            href="https://drive.google.com/file/d/1kOAtsx2-epd4I9IPklEXV6nqtkXwqYwb/view?usp=sharing"
             target="_blank"
             passHref
           >
