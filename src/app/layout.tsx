@@ -7,6 +7,7 @@ import { ThemeProvider } from "@/components/theme-provider"
 import { NavbarDemo } from "@/components/Navbar"
 import { Spotlight } from "@/components/ui/Spotlight"
 import { Footer } from "@/components/Footer"
+import { Toaster } from "@/components/ui/sonner"
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -71,6 +72,7 @@ export default function RootLayout({
             {children}
             <Footer />
           </div>
+          <Toaster/>
         </ThemeProvider>
       </body>
     </html>
