@@ -14,10 +14,10 @@ export function Projects() {
     {
       title: "Roxxcart",
       description: "An e-commerce platform with product catalog, user authentication, and payment integration.",
-      image: "/placeholder.svg?height=400&width=600",
+      image: "/Roxxcart.png?height=400&width=600",
       technologies: ["Next.js", "TypeScript", "Tailwind CSS", "MongoDB", "Stripe"],
-      github: "https://github.com/priyanshusingh305",
-      demo: "#",
+      github: "https://github.com/priyanshusingh305/e-commerce",
+      demo: "https://youtu.be/Al6UlszjJyI",
     },
     {
       title: "LoFi",

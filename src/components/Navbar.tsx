@@ -1,37 +1,39 @@
-"use client"
+"use client";
 
-import React, { useState, useEffect } from "react"
-import { HoveredLink, Menu, MenuItem, ProductItem } from "./ui/navbar-menu"
-import { cn } from "@/lib/utils"
-import { ModeToggle } from "./ui/toggle-mode"
-import { MenuIcon, X } from 'lucide-react'
-import { Button } from "./ui/button"
-import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet"
-import Link from "next/link"
+import React, { useState, useEffect } from "react";
+import { HoveredLink, Menu, MenuItem, ProductItem } from "./ui/navbar-menu";
+import { cn } from "@/lib/utils";
+import { ModeToggle } from "./ui/toggle-mode";
+import { MenuIcon, X } from "lucide-react";
+import { Button } from "./ui/button";
+import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet";
+import Link from "next/link";
 
 export function NavbarDemo() {
-  const [isScrolled, setIsScrolled] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10)
-    }
+      setIsScrolled(window.scrollY > 10);
+    };
 
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <div className="fixed top-0 left-0 right-0 z-50 w-full">
       <div
         className={cn(
           "w-full transition-all duration-300",
-          isScrolled ? "bg-background/80 backdrop-blur-md shadow-sm py-2" : "py-4"
+          isScrolled
+            ? "bg-background/80 backdrop-blur-md shadow-sm py-2"
+            : "py-4"
         )}
       >
         <div className="container mx-auto flex items-center justify-between px-4">
           {/* Logo */}
-          <Link href="#home" className="text-xl font-bold z-50">
+          <Link href="/#home" className="text-xl font-bold z-50">
             Priyanshu Singh
           </Link>
 
@@ -53,68 +55,83 @@ export function NavbarDemo() {
         </div>
       </div>
     </div>
-  )
+  );
 }
 
 function DesktopNav() {
-  const [active, setActive] = useState<string | null>(null)
+  const [active, setActive] = useState<string | null>(null);
 
   return (
     <div className="relative z-50">
       <Menu setActive={setActive}>
         <MenuItem setActive={setActive} active={active} item="Home">
           <div className="flex flex-col space-y-4 text-sm">
-            <HoveredLink href="#home">Home</HoveredLink>
-            <HoveredLink href="#about">About</HoveredLink>
-            <HoveredLink href="#tech-stack">Tech Stack</HoveredLink>
+            <HoveredLink href="/#home">Home</HoveredLink>
+            <HoveredLink href="/#about">About</HoveredLink>
+            <HoveredLink href="/#tech-stack">Tech Stack</HoveredLink>
           </div>
         </MenuItem>
         <MenuItem setActive={setActive} active={active} item="Experience">
           <div className="flex flex-col space-y-4 text-sm">
-            <HoveredLink href="#education">Education</HoveredLink>
-            <HoveredLink href="#experience">Work Experience</HoveredLink>
-            <HoveredLink href="#projects">Projects</HoveredLink>
+            <HoveredLink href="/#education">Education</HoveredLink>
+            <HoveredLink href="/#experience">Work Experience</HoveredLink>
+            <HoveredLink href="/#projects">Projects</HoveredLink>
           </div>
         </MenuItem>
         <MenuItem setActive={setActive} active={active} item="Projects">
           <div className="text-sm grid grid-cols-2 gap-10 p-4">
             <ProductItem
               title="Roxxcart"
-              href="#projects"
+              href="/#projects"
               src="/placeholder.svg?height=100&width=100"
               description="E-commerce platform with product catalog and payment integration."
             />
             <ProductItem
               title="LoFi"
-              href="#projects"
+              href="/#projects"
               src="/placeholder.svg?height=100&width=100"
               description="Music player platform with curated playlists for focus and relaxation."
             />
             <ProductItem
               title="Portfolio"
-              href="#projects"
+              href="/#projects"
               src="/placeholder.svg?height=100&width=100"
               description="Personal portfolio website showcasing skills and projects."
             />
           </div>
         </MenuItem>
+        {/* Blogs Menu Item */}
+        <MenuItem setActive={setActive} active={active} item="Blogs">
+          <div className="flex flex-col space-y-4 text-sm">
+            <HoveredLink href="/blogs">All Blogs</HoveredLink>
+          </div>
+        </MenuItem>
         <MenuItem setActive={setActive} active={active} item="Contact">
           <div className="flex flex-col space-y-4 text-sm">
-            <HoveredLink href="#contact">Get in Touch</HoveredLink>
-            <HoveredLink href="https://github.com/priyanshusingh305" target="_blank">
+            <HoveredLink href="/#contact">Get in Touch</HoveredLink>
+            <HoveredLink
+              href="https://github.com/priyanshusingh305"
+              target="_blank"
+            >
               GitHub
             </HoveredLink>
-            <HoveredLink href="https://www.linkedin.com/in/akapriyanshudev" target="_blank">
+            <HoveredLink
+              href="https://www.linkedin.com/in/akapriyanshudev"
+              target="_blank"
+            >
               LinkedIn
             </HoveredLink>
-            <HoveredLink href="https://twitter.com/akapriyanshudev" target="_blank">
+            <HoveredLink
+              href="https://twitter.com/akapriyanshudev"
+              target="_blank"
+            >
               Twitter
             </HoveredLink>
           </div>
         </MenuItem>
       </Menu>
     </div>
-  )
+  );
 }
 
 function MobileNav() {
@@ -125,8 +142,9 @@ function MobileNav() {
     { name: "Education", href: "#education" },
     { name: "Experience", href: "#experience" },
     { name: "Projects", href: "#projects" },
+    { name: "Blogs", href: "/blogs" },
     { name: "Contact", href: "#contact" },
-  ]
+  ];
 
   return (
     <Sheet>
@@ -161,7 +179,9 @@ function MobileNav() {
 
           <div className="mt-auto mb-8">
             <div className="flex flex-col gap-4 mt-8">
-              <h3 className="text-sm font-semibold text-muted-foreground px-4">Social Links</h3>
+              <h3 className="text-sm font-semibold text-muted-foreground px-4">
+                Social Links
+              </h3>
               <div className="flex flex-col gap-2">
                 <Link
                   href="https://github.com/priyanshusingh305"
@@ -190,5 +210,5 @@ function MobileNav() {
         </div>
       </SheetContent>
     </Sheet>
-  )
+  );
 }
