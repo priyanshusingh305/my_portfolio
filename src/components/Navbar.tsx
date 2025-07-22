@@ -83,7 +83,7 @@ function DesktopNav() {
             <ProductItem
               title="Roxxcart"
               href="/#projects"
-              src="/placeholder.svg?height=100&width=100"
+              src="/Roxxcart.png??height=100&width=100"
               description="E-commerce platform with product catalog and payment integration."
             />
             <ProductItem
@@ -136,14 +136,14 @@ function DesktopNav() {
 
 function MobileNav() {
   const navItems = [
-    { name: "Home", href: "#home" },
-    { name: "About", href: "#about" },
-    { name: "Tech Stack", href: "#tech-stack" },
-    { name: "Education", href: "#education" },
-    { name: "Experience", href: "#experience" },
-    { name: "Projects", href: "#projects" },
+    { name: "Home", href: "/#home" },
+    { name: "About", href: "/#about" },
+    { name: "Tech Stack", href: "/#tech-stack" },
+    { name: "Education", href: "/#education" },
+    { name: "Experience", href: "/#experience" },
+    { name: "Projects", href: "/#projects" },
     { name: "Blogs", href: "/blogs" },
-    { name: "Contact", href: "#contact" },
+    { name: "Contact", href: "/#contact" },
   ];
 
   return (
