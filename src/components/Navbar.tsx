@@ -83,7 +83,7 @@ function DesktopNav() {
             <ProductItem
               title="Roxxcart"
               href="/#projects"
-              src="/Roxxcart.png??height=100&width=100"
+              src="/Roxxcart.png?height=100&width=100"
               description="E-commerce platform with product catalog and payment integration."
             />
             <ProductItem
