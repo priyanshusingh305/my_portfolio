@@ -1,6 +1,7 @@
 import type React from "react";
 import type { Metadata } from "next";
 import { Inter as FontSans } from "next/font/google";
+import Script from 'next/script';
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/theme-provider";
@@ -96,11 +97,13 @@ export default function RootLayout({
           </div>
           <Toaster />
         </ThemeProvider>
-        <script
-          defer
+        
+        {/* Umami Analytics Script - Optimized with Next.js Script component */}
+        <Script
           src="https://cloud.umami.is/script.js"
           data-website-id="1184f271-099b-44fb-a3cb-d6021382a74d"
-        ></script>
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   );
