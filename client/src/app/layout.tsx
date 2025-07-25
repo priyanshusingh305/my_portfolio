@@ -60,6 +60,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
+    <script defer src="https://cloud.umami.is/script.js" data-website-id="1184f271-099b-44fb-a3cb-d6021382a74d"></script>
       <body className={cn("min-h-screen bg-background font-sans antialiased", fontSans.variable)}>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
           <NavbarDemo />
