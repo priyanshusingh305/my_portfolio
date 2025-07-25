@@ -362,6 +362,207 @@ export interface AdminUser extends Schema.CollectionType {
   };
 }
 
+export interface ApiAuthorAuthor extends Schema.CollectionType {
+  collectionName: 'authors';
+  info: {
+    description: 'Blog post authors';
+    displayName: 'Author';
+    pluralName: 'authors';
+    singularName: 'author';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    avatar: Attribute.Media<'images'>;
+    bio: Attribute.Text &
+      Attribute.SetMinMaxLength<{
+        maxLength: 1000;
+      }>;
+    blog_posts: Attribute.Relation<
+      'api::author.author',
+      'oneToMany',
+      'api::blog-post.blog-post'
+    >;
+    createdAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::author.author',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    email: Attribute.Email & Attribute.Required & Attribute.Unique;
+    name: Attribute.String &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        maxLength: 100;
+      }>;
+    social_links: Attribute.JSON;
+    updatedAt: Attribute.DateTime;
+    updatedBy: Attribute.Relation<
+      'api::author.author',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiBlogPostBlogPost extends Schema.CollectionType {
+  collectionName: 'blog_posts';
+  info: {
+    description: 'Blog posts for the portfolio website';
+    displayName: 'Blog Post';
+    pluralName: 'blog-posts';
+    singularName: 'blog-post';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    author: Attribute.Relation<
+      'api::blog-post.blog-post',
+      'manyToOne',
+      'api::author.author'
+    >;
+    category: Attribute.Relation<
+      'api::blog-post.blog-post',
+      'manyToOne',
+      'api::category.category'
+    >;
+    content: Attribute.RichText & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::blog-post.blog-post',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    excerpt: Attribute.Text &
+      Attribute.SetMinMaxLength<{
+        maxLength: 500;
+      }>;
+    featured: Attribute.Boolean & Attribute.DefaultTo<false>;
+    featured_image: Attribute.Media<'images'>;
+    meta_description: Attribute.Text &
+      Attribute.SetMinMaxLength<{
+        maxLength: 160;
+      }>;
+    meta_title: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 60;
+      }>;
+    publishedAt: Attribute.DateTime;
+    reading_time: Attribute.Integer &
+      Attribute.SetMinMax<
+        {
+          min: 1;
+        },
+        number
+      >;
+    slug: Attribute.UID<'api::blog-post.blog-post', 'title'> &
+      Attribute.Required;
+    tags: Attribute.Relation<
+      'api::blog-post.blog-post',
+      'manyToMany',
+      'api::tag.tag'
+    >;
+    title: Attribute.String &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+        minLength: 1;
+      }>;
+    updatedAt: Attribute.DateTime;
+    updatedBy: Attribute.Relation<
+      'api::blog-post.blog-post',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    views: Attribute.Integer & Attribute.DefaultTo<0>;
+  };
+}
+
+export interface ApiCategoryCategory extends Schema.CollectionType {
+  collectionName: 'categories';
+  info: {
+    description: 'Blog post categories';
+    displayName: 'Category';
+    pluralName: 'categories';
+    singularName: 'category';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    blog_posts: Attribute.Relation<
+      'api::category.category',
+      'oneToMany',
+      'api::blog-post.blog-post'
+    >;
+    color: Attribute.String;
+    createdAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::category.category',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    description: Attribute.Text &
+      Attribute.SetMinMaxLength<{
+        maxLength: 500;
+      }>;
+    name: Attribute.String &
+      Attribute.Required &
+      Attribute.Unique &
+      Attribute.SetMinMaxLength<{
+        maxLength: 100;
+      }>;
+    slug: Attribute.UID<'api::category.category', 'name'> & Attribute.Required;
+    updatedAt: Attribute.DateTime;
+    updatedBy: Attribute.Relation<
+      'api::category.category',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiTagTag extends Schema.CollectionType {
+  collectionName: 'tags';
+  info: {
+    description: 'Blog post tags';
+    displayName: 'Tag';
+    pluralName: 'tags';
+    singularName: 'tag';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    blog_posts: Attribute.Relation<
+      'api::tag.tag',
+      'manyToMany',
+      'api::blog-post.blog-post'
+    >;
+    createdAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::tag.tag', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    name: Attribute.String &
+      Attribute.Required &
+      Attribute.Unique &
+      Attribute.SetMinMaxLength<{
+        maxLength: 50;
+      }>;
+    slug: Attribute.UID<'api::tag.tag', 'name'> & Attribute.Required;
+    updatedAt: Attribute.DateTime;
+    updatedBy: Attribute.Relation<'api::tag.tag', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
 export interface PluginContentReleasesRelease extends Schema.CollectionType {
   collectionName: 'strapi_releases';
   info: {
@@ -798,6 +999,10 @@ declare module '@strapi/types' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
+      'api::author.author': ApiAuthorAuthor;
+      'api::blog-post.blog-post': ApiBlogPostBlogPost;
+      'api::category.category': ApiCategoryCategory;
+      'api::tag.tag': ApiTagTag;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;
