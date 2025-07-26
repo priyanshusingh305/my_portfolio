@@ -9,7 +9,7 @@ import { Button } from "./ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet";
 import Link from "next/link";
 
-export function NavbarDemo() {
+export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
@@ -103,7 +103,7 @@ function DesktopNav() {
         {/* Blogs Menu Item */}
         <MenuItem setActive={setActive} active={active} item="Blogs">
           <div className="flex flex-col space-y-4 text-sm">
-            <HoveredLink href="/blogs">All Blogs</HoveredLink>
+            <HoveredLink href="/blog">All Blogs</HoveredLink>
           </div>
         </MenuItem>
         <MenuItem setActive={setActive} active={active} item="Contact">
@@ -142,7 +142,7 @@ function MobileNav() {
     { name: "Education", href: "/#education" },
     { name: "Experience", href: "/#experience" },
     { name: "Projects", href: "/#projects" },
-    { name: "Blogs", href: "/blogs" },
+    { name: "Blogs", href: "/blog" },
     { name: "Contact", href: "/#contact" },
   ];
 

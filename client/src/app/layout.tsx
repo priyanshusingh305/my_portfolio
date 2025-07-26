@@ -1,11 +1,11 @@
 import type React from "react";
 import type { Metadata } from "next";
 import { Inter as FontSans } from "next/font/google";
-import Script from 'next/script';
+import Script from "next/script";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/theme-provider";
-import { NavbarDemo } from "@/components/Navbar";
+import { Navbar } from "@/components/Navbar";
 import { Spotlight } from "@/components/ui/Spotlight";
 import { Footer } from "@/components/Footer";
 import { Toaster } from "@/components/ui/sonner";
@@ -82,7 +82,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <NavbarDemo />
+          <Navbar />
           <div className="fixed md:top-4 md:right-4 z-10 bottom-4 right-4">
             {/* <ModeToggle /> */}
           </div>
@@ -97,7 +97,7 @@ export default function RootLayout({
           </div>
           <Toaster />
         </ThemeProvider>
-        
+
         {/* Umami Analytics Script - Optimized with Next.js Script component */}
         <Script
           src="https://cloud.umami.is/script.js"
