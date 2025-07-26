@@ -13,7 +13,7 @@ module.exports = {
     },
     {
       method: 'GET',
-      path: '/blog-posts/:id',
+      path: '/blog-post/:id',
       handler: 'blog-post.findOne',
       config: {
         policies: [],
@@ -22,7 +22,7 @@ module.exports = {
     },
     {
       method: 'POST',
-      path: '/blog-posts',
+      path: '/blog-post',
       handler: 'blog-post.create',
       config: {
         policies: [],
@@ -31,7 +31,7 @@ module.exports = {
     },
     {
       method: 'PUT',
-      path: '/blog-posts/:id',
+      path: '/blog-post/:id',
       handler: 'blog-post.update',
       config: {
         policies: [],
@@ -40,7 +40,7 @@ module.exports = {
     },
     {
       method: 'DELETE',
-      path: '/blog-posts/:id',
+      path: '/blog-post/:id',
       handler: 'blog-post.delete',
       config: {
         policies: [],
@@ -50,7 +50,7 @@ module.exports = {
     // Custom route for getting by slug
     {
       method: 'GET',
-      path: '/blog-posts/slug/:slug',
+      path: '/blog-post/slug/:slug',
       handler: 'blog-post.findBySlug',
       config: {
         policies: [],
