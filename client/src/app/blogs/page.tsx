@@ -17,7 +17,7 @@ export default function BlogsPage() {
 
         {/* Image */}
         <div className="relative">
-          <div className="w-64 h-64 mx-auto rounded-full overflow-hidden shadow-2xl ring-1">
+          <div className="w-64 h-64 mx-auto rounded-full overflow-hidden shadow-2xl">
             <Image 
               src="/2.png" 
               alt="Blog illustration" 
