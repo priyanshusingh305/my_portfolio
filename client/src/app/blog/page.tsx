@@ -528,10 +528,12 @@ export default async function BlogPage({
   const { data: posts, meta } = blogData
   const { pagination } = meta
 
+  
+
   // Show error message if no data and likely an API issue
   if (posts.length === 0 && pagination.total === 0 && !category && !tag) {
     return (
-      <div className="container mx-auto px-4 py-16">
+      <div className="container mx-auto px-4 py-16 min-h-screen flex items-center justify-center">
         <div className="text-center">
           <h1 className="text-4xl font-bold mb-8">Blog</h1>
           <div className="bg-red-50 border border-red-200 rounded-lg p-8 max-w-md mx-auto">
