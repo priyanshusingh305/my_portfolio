@@ -5,7 +5,6 @@ import { ThemeProvider as NextThemesProvider } from "next-themes";
 // biome-ignore lint/style/useImportType: <explanation>
 import { ThemeProviderProps } from "next-themes/dist/types";
 
-
 export function ThemeProvider({ children, ...props }: ThemeProviderProps) {
 	return <NextThemesProvider {...props}>{children}</NextThemesProvider>;
 }
