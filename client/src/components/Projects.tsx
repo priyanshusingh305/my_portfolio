@@ -29,9 +29,9 @@ export function Projects() {
 		},
 		{
 			title: "Portfolio Website",
-			description: "Personal portfolio website showcasing skills, projects, and experience.",
-			image: "/placeholder.svg?height=400&width=600",
-			technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
+			description: "Personal portfolio website showcasing skills, projects, experience and blogs.",
+			image: "/portfolio.png?height=400&width=600",
+			technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion", "Strapi"],
 			github: "https://github.com/priyanshusingh305",
 			demo: "#",
 		},
