@@ -79,10 +79,10 @@ export function Contact() {
 								</div>
 							</div>
 
-							<div className="flex items-center gap-4">
+							{/*<div className="flex items-center gap-4">
 								<div className="bg-primary/10 p-3 rounded-full">
 									<Phone className="h-6 w-6 text-primary" />
-								</div>
+								</div>*/}
 								{/* <div>
 									<p className="text-sm text-muted-foreground">Phone</p>
 									<Link className="font-medium"  href="tel:+918299614046">+91 82996 14046</Link>
